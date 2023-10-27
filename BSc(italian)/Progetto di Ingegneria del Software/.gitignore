@@ -1,0 +1,12 @@
+/* 
+!.gitignore
+!README.md 
+!pom.xml 
+!resources/ 
+!src/
+!javadoc/
+!deliverables
+!imgReadme.png
+.idea/
+project.iml 
+target/

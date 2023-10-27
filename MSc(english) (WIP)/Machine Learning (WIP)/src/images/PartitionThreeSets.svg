@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 627 89" style="enable-background:new 0 0 627 89;" xml:space="preserve">
+<desc>A horizontal bar divided into three pieces: 70% of which is the training set, 15% the validation set, and 15% the test set</desc>
+<style type="text/css">
+	.partition-st0{fill-rule:evenodd;clip-rule:evenodd;fill:#4285F4;}
+	.partition-st1{fill-rule:evenodd;clip-rule:evenodd;fill:#4FC3F7;}
+	.partition-st2{fill-rule:evenodd;clip-rule:evenodd;fill:#F4B400;}
+	.partition-st3{fill:#424242;}
+	.partition-st4{font-family:'Arial-BoldMT';}
+	.partition-st5{font-size:12px;}
+</style>
+<rect x="3.8" y="3.9" class="partition-st0" width="452.9" height="63.3"/>
+<rect x="456.7" y="3.9" class="partition-st1" width="83" height="63.3"/>
+<rect x="539.7" y="3.9" class="partition-st2" width="83" height="63.3"/>
+<text transform="matrix(1 0 0 1 195.5411 82.8502)" class="partition-st3 partition-st4 partition-st5">Training Set</text>
+<text transform="matrix(1 0 0 1 458.4932 82.8502)" class="partition-st3 partition-st4 partition-st5">Validation Set</text>
+<text transform="matrix(1 0 0 1 557.8342 82.8501)" class="partition-st3 partition-st4 partition-st5">Test Set</text>
+</svg>

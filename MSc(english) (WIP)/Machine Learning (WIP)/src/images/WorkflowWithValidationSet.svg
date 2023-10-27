@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 720 341" style="enable-background:new 0 0 720 341;" xml:space="preserve">
+<desc>Similar workflow to Figure 1, except that instead of evaluating the model against the test set, the workflow evaluates the model against the validation set. Then, once the training set and validation set more-or-less agree, confirm the model against the test set.</desc>
+<style type="text/css">
+	.valid-st0{opacity:0;fill-rule:evenodd;clip-rule:evenodd;}
+	.valid-st1{fill:none;stroke:#999999;stroke-width:1.5;stroke-linejoin:round;stroke-miterlimit:14.3356;stroke-dasharray:6,4.5;}
+	.valid-st2{fill-rule:evenodd;clip-rule:evenodd;fill:#4285F4;}
+	.valid-st3{font-family:'Arial-BoldMT';}
+	.valid-st4{font-size:20px;}
+	.valid-st5{fill-rule:evenodd;clip-rule:evenodd;fill:#4FC3F7;}
+	.valid-st6{font-family:'ArialMT';}
+	.valid-st7{fill:none;stroke:#424242;stroke-width:2.25;stroke-linejoin:round;stroke-miterlimit:14.3356;}
+	.valid-st8{fill-rule:evenodd;clip-rule:evenodd;fill:#424242;}
+	.valid-st9{fill:none;stroke:#424242;stroke-width:2.25;stroke-miterlimit:11.4737;}
+	.valid-st10{font-size:24px;}
+	.valid-st11{fill:#4FC3F7;}
+	.valid-st12{fill:none;stroke:#000000;stroke-width:1.5;stroke-linejoin:round;stroke-miterlimit:14.3356;}
+	.valid-st13{fill:#F4B400;}
+</style>
+<g>
+	<g>
+		<rect x="4.1" y="3.4" class="valid-st0" width="708.8" height="206.1"/>
+		<rect x="4.1" y="3.4" class="valid-st1" width="708.8" height="206.1"/>
+		<rect x="35.3" y="11.3" class="valid-st2" width="283.6" height="85.2"/>
+		<text transform="matrix(1 0 0 1 42.0489 61.1031)" class="valid-st3 valid-st4">Train model on Training Set</text>
+		<rect x="351.9" y="11.3" class="valid-st5" width="328.4" height="85.2"/>
+		<text transform="matrix(1 0 0 1 358.6611 61.1089)" class="valid-st3 valid-st4">Evaluate model on Validation Set</text>
+		<text transform="matrix(1 0 0 1 673.0508 61.1089)" class="valid-st6 valid-st4"> </text>
+		<line class="valid-st0" x1="318.9" y1="53.9" x2="351.9" y2="53.9"/>
+		<line class="valid-st7" x1="318.9" y1="53.9" x2="344.2" y2="53.9"/>
+		<polygon class="valid-st8" points="344.2,53.9 341.7,56.4 348.6,53.9 341.7,51.4 		"/>
+		<polygon class="valid-st9" points="344.2,53.9 341.7,56.4 348.6,53.9 341.7,51.4 		"/>
+		<polyline class="valid-st0" points="680.3,53.9 699.1,53.9 699.1,163.5 493.3,163.5 		"/>
+		<polyline class="valid-st7" points="680.3,53.9 699.1,53.9 699.1,163.5 501,163.5 		"/>
+		<polygon class="valid-st8" points="501,163.5 503.6,160.9 496.6,163.5 503.6,166 		"/>
+		<polygon class="valid-st9" points="501,163.5 503.6,160.9 496.6,163.5 503.6,166 		"/>
+		<rect x="194.8" y="125.4" class="valid-st0" width="298.6" height="76.3"/>
+		<text transform="matrix(1 0 0 1 201.502 155.1406)" class="valid-st6 valid-st10">Tweak model according to </text>
+		<rect x="312.2" y="160.6" class="valid-st11" width="158.7" height="28.8"/>
+		<text transform="matrix(1 0 0 1 201.502 183.6406)" class="valid-st6 valid-st10">results on </text>
+		<text transform="matrix(1 0 0 1 312.2207 183.6406)" class="valid-st3 valid-st10">Validation Set</text>
+		<text transform="matrix(1 0 0 1 470.916 183.6406)" class="valid-st6 valid-st10"> </text>
+		<polyline class="valid-st0" points="35.3,53.9 16.5,53.9 16.5,163.5 194.7,163.5 		"/>
+		<polyline class="valid-st7" points="27.6,53.9 16.5,53.9 16.5,163.5 194.7,163.5 		"/>
+		<polygon class="valid-st8" points="27.6,53.9 25.1,56.4 32,53.9 25.1,51.4 		"/>
+		<polygon class="valid-st9" points="27.6,53.9 25.1,56.4 32,53.9 25.1,51.4 		"/>
+		<rect x="23.8" y="259.9" class="valid-st0" width="301.7" height="76.3"/>
+		<rect x="23.8" y="259.9" class="valid-st12" width="301.7" height="76.3"/>
+		<rect x="23.3" y="260.3" class="valid-st0" width="293.4" height="40.5"/>
+		<text transform="matrix(1 0 0 1 32.5723 290.1368)" class="valid-st6 valid-st10">Pick model that does best </text>
+		<rect x="107.3" y="295.6" class="valid-st11" width="158.7" height="28.8"/>
+		<text transform="matrix(1 0 0 1 73.9512 318.6368)" class="valid-st6 valid-st10">on </text>
+		<text transform="matrix(1 0 0 1 107.3145 318.6368)" class="valid-st3 valid-st10">Validation Set</text>
+		<line class="valid-st0" x1="209.2" y1="209.6" x2="208.9" y2="255"/>
+		<line class="valid-st7" x1="209.2" y1="209.6" x2="208.9" y2="247.3"/>
+		<polygon class="valid-st8" points="208.9,247.3 206.4,244.7 208.9,251.7 211.5,244.8 		"/>
+		<polygon class="valid-st9" points="208.9,247.3 206.4,244.7 208.9,251.7 211.5,244.8 		"/>
+		<rect x="400" y="259.9" class="valid-st0" width="238.7" height="76.3"/>
+		<rect x="400" y="259.9" class="valid-st12" width="238.7" height="76.3"/>
+		<rect x="399.6" y="260.3" class="valid-st0" width="232.2" height="40.5"/>
+		<text transform="matrix(1 0 0 1 418.3066 290.1386)" class="valid-st6 valid-st10">Confirm results on </text>
+		<rect x="471" y="295.6" class="valid-st13" width="93.4" height="28.8"/>
+		<text transform="matrix(1 0 0 1 470.9883 318.6386)" class="valid-st3 valid-st10">Test Set</text>
+		<line class="valid-st0" x1="329.8" y1="298.1" x2="396.7" y2="298.1"/>
+		<line class="valid-st7" x1="329.8" y1="298.1" x2="389" y2="298.1"/>
+		<polygon class="valid-st8" points="389,298.1 386.5,300.6 393.5,298.1 386.5,295.5 		"/>
+		<polygon class="valid-st9" points="389,298.1 386.5,300.6 393.5,298.1 386.5,295.5 		"/>
+	</g>
+</g>
+</svg>
