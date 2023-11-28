@@ -20,30 +20,31 @@ These notes were created during periods of desperate studying, utilizing both pr
 ## Courses index
 
 ````
-├── MSc(english) (WIP) 
+.
+├── MSc(english) (WIP)
 │   ├── Advanced Algorithms and Parallel Programming
-│   ├── Advanced Computer Architectures
-│   ├── Advanced OS (WIP)
-│   ├── Artificial Neural Networks and Deep Learning (WIP)
-│   ├── Complessitá dei sistemi e delle reti (WIP)
-│   ├── Computer Graphics(WIP)
-│   ├── Computer Security (WIP)
-│   ├── Computing Infrastructures (WIP)
-│   ├── Databases 2
-│   ├── Design and Implementation of Mobile Apps (WIP)
-│   ├── Distributed Systems (WIP)
-│   ├── Formal Languages and Compilers (WIP)
-│   ├── Foundations of Operation Research (WIP)
-│   ├── Hypermedia Applications (WIP)
-│   ├── Machine Learning (WIP)
-│   ├── Philosophical Issues of Computer Science (WIP)
-│   ├── Principles of Programming Languages(WIP)
-│   ├── Software Engineering 2
-│   └── Videogame Design and Programming (WIP)
-│
+│   ├── Advanced Computer Architectures
+│   ├── Advanced Operating Systems (WIP)
+│   ├── Artificial Neural Networks and Deep Learning (WIP)
+│   ├── Complex systems and networks (WIP)
+│   ├── Computer Graphics(WIP)
+│   ├── Computer Security
+│   ├── Computing Infrastructures (WIP)
+│   ├── Databases 2
+│   ├── Design and Implementation of Mobile Apps (WIP)
+│   ├── Distributed Systems (WIP)
+│   ├── Formal Languages and Compilers (WIP)
+│   ├── Foundations of Operation Research (WIP)
+│   ├── Hypermedia Applications (WIP)
+│   ├── Machine Learning (WIP)
+│   ├── Networked Development for Distributed Systems
+│   ├── Philosophical Issues of Computer Science (WIP)
+│   ├── Principles of Programming Languages
+│   ├── Software Engineering 2
+│   └── Videogame Design and Programming (WIP)
 ├── BSc(italian)
 │   ├── Algoritmi e Principi dell'Informatica
-│   ├── Analisi 2 (WIP) 
+│   ├── Analisi 2 (WIP)
 │   ├── Basi di Dati
 │   ├── Economia e Organizzazione Aziendale
 │   ├── Fondamenti di Automatica
@@ -62,16 +63,12 @@ These notes were created during periods of desperate studying, utilizing both pr
 ## Generic course folder 
 
 ````
-.
-├── course_name.md // index of course topics
-├── build_course.sh // script to build PDF file **ignore**
-├── course_name.pdf // PDF generated from the md notes 
+Course folder
+├── course_name.md // index of a main topics of the course
+├── course_name.pdf // single PDF of all merged notes
 └── src 
     ├── 00.Header.md //necessary to make index in PDF **ignore**
-    ├── ... .md //single topic/chapter note
+    ├── ... .md //single topic 
     ....
     └── images 
-        ├── ... .png 
-        ├── ... .jpg
-        ....
 ````
