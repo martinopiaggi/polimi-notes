@@ -7,7 +7,15 @@
 
 [Laboratory ann](src/01.Laboratory%20ann.md)
 
+[Image Segmentation](src/04.Image%20Segmentation.md)
 
+[Image Localization](src/05.%20Image%20Localization.md)
+
+[Object Detection](src/06.Object%20Detection.md)
+
+[Autoencoders and GAN](src/07.Autoencoders%20and%20GAN.md)
+
+[Recurrent Neural Networks](src/08.Recurrent%20Neural%20Networks.md)
 
 Resources: 
 
