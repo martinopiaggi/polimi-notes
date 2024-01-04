@@ -1,20 +1,20 @@
 
 [Advanced Operating Systems — A.A. 2023/2024 — Polimi (notion.site)](https://vzaccaria.notion.site/Advanced-Operating-Systems-A-A-2023-2024-Polimi-554bcf13590542d4bd65c8901f7f8a8c)
 
-[Introduction](src/00.Introduction.md) 
-
-[Multiprocessing](src/00.Multiprocessing.md)
-
-[Scheduling](src/01.Scheduling.md)
-
-[Multi-process programming and Inter-Process Communication](src/01.Multi-process%20programming%20and%20Inter-Process%20Communication.md)
+[OS Introduction](src/00.OS%20Introduction.md)
 
 [Concurrency](src/01.Concurrency.md)
 
-[Virtualization](src/02.Virtualization.md)
+[Scheduling](src/02.Scheduling.md)
 
-[Devices](src/03.Devices.md)
+[Multi-processing and Inter-Process Communication](src/03.Multi-processing%20and%20Inter-Process%20Communication.md)
 
-[Boot generics](Boot%20generics.md)
+[IO](src/04.IO.md)
 
-[C++ ](src/04.C++.md)
+[Virtual Memory](src/05.Virtual%20Memory.md)
+
+[Virtualization](src/06.Virtualization.md)
+
+[C++](src/07.C++.md)
+
+[Booting](src/Booting.md)

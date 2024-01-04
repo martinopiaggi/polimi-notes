@@ -1326,6 +1326,7 @@ Zone information are contained in a list called pgdat_list and for UMA architect
 
 ![](https://cdn.mathpix.com/cropped/2023_09_16_0800d0e0d0f73c8307dfg-41.jpg?height=917&width=1688&top_left_y=1346&top_left_x=184)
 
+
 ### Page allocation
 
 Each zone contains the total size of pages in the zone and an array of lists of free page ranges. When kernel needs contiguous pages and there are free pages, the buddy algorithm is used to choose how to split free memory regions to satisfy the request.
