@@ -6,7 +6,7 @@
 - Edge Computing: [Node Red](src/02.Node%20Red.md) 
 - Data analysis: [Apache Spark](src/03.%20Apache%20Spark.md)
 - High performance computing: [MPI](../Advanced%20Algorithms%20and%20Parallel%20Programming/src/13.MPI.md)
-- IoT: Contiki
+- IoT: [Contiki](src/04.Contiki.md) 
 
 The course argues that any modern engineer should be proficient in writing networked software due to its diversity and applicability across different platforms and technologies.
 
