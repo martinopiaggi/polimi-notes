@@ -1,15 +1,15 @@
 
-[00.Networks](src/00.Networks.md)
+[Networks](src/00.Networks.md)
 
-[01.Network models](src/01.Network%20models.md)
+[Network models](src/01.Network%20models.md)
 
-[03.Mesoscale Network Analysis](src/03.Mesoscale%20Network%20Analysis.md)
+[Mesoscale Network Analysis](src/03.Mesoscale%20Network%20Analysis.md)
 
-[04.Advanced Topics](src/04.Advanced%20Topics.md)
+[Advanced Topics](src/04.Advanced%20Topics%20in%20Network%20Analysis.md)
 
-[05.Networked Dynamical Networks](src/05.Networked%20Dynamical%20Networks.md)
+[Networked Dynamical Networks](src/05.Spreading%20processes%20on%20networks.md)
 
-[06. Synchronization](src/06.%20Synchronization.md)
+[Synchronization](src/06.%20Synchronization.md)
 
 External: 
 
