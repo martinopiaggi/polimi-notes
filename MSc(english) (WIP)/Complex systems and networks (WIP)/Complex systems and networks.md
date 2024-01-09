@@ -7,7 +7,7 @@
 
 [Advanced Topics](src/04.Advanced%20Topics%20in%20Network%20Analysis.md)
 
-[Networked Dynamical Networks](src/05.Spreading%20processes%20on%20networks.md)
+[Spreading processes on networks](src/05.Spreading%20processes%20on%20networks.md)
 
 [Synchronization](src/06.%20Synchronization.md)
 
