@@ -5,7 +5,7 @@
 
 [Mesoscale Network Analysis](src/03.Mesoscale%20Network%20Analysis.md)
 
-[Advanced Topics](src/04.Advanced%20Topics%20in%20Network%20Analysis.md)
+[Link prediction and robustness in networks](src/04.Link%20prediction%20and%20robustness%20in%20networks.md)
 
 [Spreading processes on networks](src/05.Spreading%20processes%20on%20networks.md)
 
