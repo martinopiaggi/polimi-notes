@@ -5,8 +5,6 @@
 
 [Image Classification](src/03.Image%20Classification.md) 
 
-[Laboratory ann](src/01.Laboratory%20ann.md)
-
 [Image Segmentation](src/04.Image%20Segmentation.md)
 
 [Image Localization](src/05.%20Image%20Localization.md)
@@ -16,6 +14,8 @@
 [Autoencoders and GAN](src/07.Autoencoders%20and%20GAN.md)
 
 [Recurrent Neural Networks](src/08.Recurrent%20Neural%20Networks.md)
+
+[Word Embedding](src/09.seq2seq.md)
 
 Resources: 
 
