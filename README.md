@@ -1,5 +1,7 @@
 # Polimi notes 
 
+![](cover.jpg)
+
 This is a collection of my notes for various **Computer Science and Engineering** courses that I attended. The repo includes:
 - **Master's degree course notes (Work In Progress):**
     - All notes are in English
@@ -26,7 +28,7 @@ These notes were created during periods of desperate studying, utilizing both pr
 │   ├── Advanced Computer Architectures
 │   ├── Advanced Operating Systems (WIP)
 │   ├── Artificial Neural Networks and Deep Learning (WIP)
-│   ├── Complex systems and networks (WIP)
+│   ├── Complex systems and networks
 │   ├── Computer Graphics(WIP)
 │   ├── Computer Security
 │   ├── Computing Infrastructures (WIP)
@@ -67,8 +69,8 @@ Course folder
 ├── course_name.md // index of a main topics of the course
 ├── course_name.pdf // single PDF of all merged notes
 └── src 
-    ├── 00.Header.md //necessary to make index in PDF **ignore**
-    ├── ... .md //single topic 
+    ├── 00.Header.md //ignore
+    ├── NN.TopicExample.md //single topic of course
     ....
     └── images 
 ````
