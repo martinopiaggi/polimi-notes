@@ -1,9 +1,6 @@
 # Polimi notes 
 
-![](images/polimi-notes.jpg)
-
 This is a collection of my notes for various **Computer Science and Engineering** courses that I attended. The repo includes:
-
 - **Master's degree course notes (Work In Progress):**
     - All notes are in English
     - Some course notes are incomplete since still in progress or boring 
@@ -16,9 +13,9 @@ These notes were created during periods of desperate studying, utilizing both pr
 ## Main features 
 
 - Every course note is divided in macro subjects plain markdown notes but it has also a PDF file.
-- Topics are **interconnected** through **markdown links**, allowing for easy navigation and exploration of related topics directly from Github.
+- Topics are **interconnected** through **markdown links**, allowing for easy navigation and exploration of related topics directly from Github (*yeah still not enough connection .. Work In Progress*).
 - **Courses marked with WIP are incomplete** as I am still working on them, studying them, or procrastinating the note refactoring.
-- If you open this repository with [Obsidian.md](https://obsidian.md/) (or similar softwares) you also have a one-click graph visualization of the notes interconnections.
+- If you open this repository with Obsidian.md (or similar softwares) you also have a one-click graph visualization of the notes interconnections.
 
 ## Courses index
 
@@ -29,7 +26,7 @@ These notes were created during periods of desperate studying, utilizing both pr
 │   ├── Advanced Computer Architectures
 │   ├── Advanced Operating Systems (WIP)
 │   ├── Artificial Neural Networks and Deep Learning (WIP)
-│   ├── Complex systems and networks
+│   ├── Complex systems and networks (WIP)
 │   ├── Computer Graphics(WIP)
 │   ├── Computer Security
 │   ├── Computing Infrastructures (WIP)
@@ -70,8 +67,8 @@ Course folder
 ├── course_name.md // index of a main topics of the course
 ├── course_name.pdf // single PDF of all merged notes
 └── src 
-    ├── 00.Header.md //ignore 
-    ├── NN.CourseTopic.md //single topic of the course
+    ├── 00.Header.md //necessary to make index in PDF **ignore**
+    ├── ... .md //single topic 
     ....
     └── images 
 ````
