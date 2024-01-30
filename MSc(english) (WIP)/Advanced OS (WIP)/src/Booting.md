@@ -103,3 +103,13 @@ The "-p" versions only require specifying the name of the binary because it can 
 If we need to specify the entire path to a binary that is not in one of these common paths, we would use one of the non-"-p" versions.
 
 
+
+## Secure boot 
+
+Secure boot is a security feature which ensures that a device will only boot using software trusted by the (Original Equipment Manufacturer (OEM)).
+
+Its primary purpose is to protect the boot process from attacks such as rootkits and bootkits, by using a set of cryptographic keys to authenticate allowed software. 
+
+These keys are stored in the TPM (hardware component). 
+
+When a device is turned on, the firmware checks the signature of the bootloader, which is the software responsible for loading the operating system. 
