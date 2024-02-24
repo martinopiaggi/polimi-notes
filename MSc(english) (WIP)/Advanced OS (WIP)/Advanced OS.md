@@ -17,4 +17,4 @@
 
 [C++](src/07.C++.md)
 
-[Booting](src/Booting.md)
+[08.Booting](src/08.Booting.md)

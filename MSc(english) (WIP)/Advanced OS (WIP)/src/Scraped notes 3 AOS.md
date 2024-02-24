@@ -1357,7 +1357,7 @@ Bitmaps make it quick and easy to check whether a block being freed has an unuse
 
 Assume you have multiple processes accessing the same file.
 
-How does Linux know if a data requested by one process is already in memory? It maintains a perfile page cache.
+How does Linux know if a data requested by one process is already in memory? It maintains a per file page cache.
 
 It is the set of physical pages that are the result of reads and writes of regular filesystem files stored in a structure called the address_space. (each address_space has a unique radix tree stored as page_tree.)
 
