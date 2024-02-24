@@ -1,7 +1,7 @@
 
 A computing infrastructure is a technological structure which makes an application available and running. Any system ranging from a Raspberry Pi to an entire data center can be considered a CI.
 
-[Data centers](01.Data%20centers.md)
+[Data centers](src/01.Data%20centers.md)
 
 [Servers](src/01.Servers.md)
 
