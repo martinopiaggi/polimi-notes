@@ -2,9 +2,9 @@
 [Introduction to heterogeneous systems](src/01.Introduction%20to%20heterogeneous%20systems.md)
 
 - [GPU architecture](src/02.GPU%20architecture.md) 
-- Programming the GPU with CUDA
-- Programming and execution models
-- Memory organization and related optimizations
+- [CUDA](src/03.CUDA.md)
+- [Programming and execution models](src/04.Programming%20and%20execution%20models.md) 
+- [Memory organization in CUDA](src/05.GPU%20memory%20hierarchy.md)
 - Kernel level optimization
 - Task level parallelism: streams, events, dynamic parallelism
 - Tools: CUDA compiler, profiler and debugger
