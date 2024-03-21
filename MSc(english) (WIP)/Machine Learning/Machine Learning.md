@@ -1,6 +1,6 @@
 [Supervised](src/00.Supervised%20Learning.md) : 
 - [Linear Regression](src/01.Linear%20Regression.md)
-- [Linear Classification](02.Linear%20Classification.md)
+- [Linear Classification](src/02.Linear%20Classification.md)
 
 [Bias-Variance](src/03.Bias-Variance.md)
 
