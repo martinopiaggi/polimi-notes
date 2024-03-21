@@ -3,6 +3,7 @@
 ![](cover.jpg)
 
 This is a collection of my notes for various **Computer Science and Engineering** courses that I attended. The repo includes:
+
 - **Master's degree course notes (Work In Progress):**
     - All notes are in English
     - Some course notes are incomplete since still in progress or boring 
@@ -21,46 +22,47 @@ These notes were created during periods of desperate studying, utilizing both pr
 
 ## Courses index
 
-````
-.
-├── MSc(english) (WIP)
-│   ├── Advanced Algorithms and Parallel Programming
-│   ├── Advanced Computer Architectures
-│   ├── Advanced Operating Systems (WIP)
-│   ├── Artificial Neural Networks and Deep Learning (WIP)
-│   ├── Complex systems and networks
-│   ├── Computer Graphics(WIP)
-│   ├── Computer Security
-│   ├── Computing Infrastructures (WIP)
-│   ├── Databases 2
-│   ├── Design and Implementation of Mobile Apps (WIP)
-│   ├── Distributed Systems (WIP)
-│   ├── Formal Languages and Compilers (WIP)
-│   ├── Foundations of Operation Research (WIP)
-│   ├── Hypermedia Applications (WIP)
-│   ├── Machine Learning (WIP)
-│   ├── Networked Development for Distributed Systems
-│   ├── Philosophical Issues of Computer Science (WIP)
-│   ├── Principles of Programming Languages
-│   ├── Software Engineering 2
-│   └── Videogame Design and Programming (WIP)
-├── BSc(italian)
-│   ├── Algoritmi e Principi dell'Informatica
-│   ├── Analisi 2 (WIP)
-│   ├── Basi di Dati
-│   ├── Economia e Organizzazione Aziendale
-│   ├── Fondamenti di Automatica
-│   ├── Fondamenti di Elettronica
-│   ├── Foundations of Artificial Intelligence
-│   ├── Ingegneria del Software
-│   ├── Meccanica
-│   ├── Probabilità e Statistica per l'Informatica
-│   ├── Progetto di Ingegneria Informatica
-│   ├── Progetto di Ingegneria del Software
-│   ├── Relazione Progetto Reti Logiche
-│   ├── Reti Logiche
-│   └── Sistemi Informativi
-````
+### MSc (English) (WIP)
+
+* [Advanced Algorithms and Parallel Programming](Advanced%20Algorithms%20and%20Parallel%20Programming)
+* [Advanced Computer Architectures](Advanced%20Computer%20Architectures)
+* [Advanced OS (WIP)](Advanced%20OS%20)
+* [Artificial Neural Networks and Deep Learning (WIP)](Artificial%20Neural%20Networks%20and%20Deep%20Learning%20)
+* [Complex systems and networks](Complex%20systems%20and%20networks)
+* [Computer Graphics(WIP)](Computer%20Graphics)
+* [Computer Security](Computer%20Security)
+* [Computing Infrastructures](Computing%20Infrastructures)
+* [Databases 2](Databases%202)
+* [Distributed Systems (WIP)](Distributed%20Systems%20)
+* [Formal Languages and Compilers (WIP)](Formal%20Languages%20and%20Compilers%20)
+* [Foundations of Operation Research (WIP)](Foundations%20of%20Operation%20Research%20)
+* [GPUs and Heterogeneous Systems (WIP)](GPUs%20and%20Heterogeneous%20Systems%20)
+* [Hypermedia Applications](Hypermedia%20Applications)
+* [Machine Learning](Machine%20Learning%20)
+* [Model Identification and Data Analysis (WIP)](Model%20Identification%20and%20Data%20Analysis%20)
+* [Networked Development for Distributed Systems](Networked%20Development%20for%20Distributed%20Systems)
+* [Philosophical Issues of Computer Science (WIP)](Philosophical%20Issues%20of%20Computer%20Science%20)
+* [Principles of Programming Languages](Principles%20of%20Programming%20Languages)
+* [Software Engineering 2](Software%20Engineering%202)
+* [Videogame Design and Programming (WIP)](Videogame%20Design%20and%20Programming%20)
+
+### BSc (Italian)
+
+* [Algoritmi e Principi dell'Informatica](Algoritmi%20e%20Principi%20dell'Informatica)
+* [Analisi 2 (WIP)](Analisi%202%20)
+* [Basi di Dati](Basi%20di%20Dati)
+* [Economia e Organizzazione Aziendale](Economia%20e%20Organizzazione%20Aziendale)
+* [Fondamenti di Automatica](Fondamenti%20di%20Automatica)
+* [Fondamenti di Elettronica](Fondamenti%20di%20Elettronica)
+* [Foundations of Artificial Intelligence](Foundations%20of%20Artificial%20Intelligence)
+* [Ingegneria del Software](Ingegneria%20del%20Software)
+* [Meccanica](Meccanica)
+* [Probabilità e Statistica per l'Informatica](Probabilità%20e%20Statistica%20per%20l'Informatica)
+* [Progetto di Ingegneria Informatica](Progetto%20di%20Ingegneria%20Informatica)
+* [Progetto di Ingegneria del Software](Progetto%20di%20Ingegneria%20del%20Software)
+* [Relazione Progetto Reti Logiche](Relazione%20Progetto%20Reti%20Logiche)
+* [Reti Logiche](Reti%20Logiche)
+* [Sistemi Informativi](Sistemi%20Informativi)
 
 ## Generic course folder 
 
