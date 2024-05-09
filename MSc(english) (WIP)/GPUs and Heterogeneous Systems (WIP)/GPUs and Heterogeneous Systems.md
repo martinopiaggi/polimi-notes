@@ -6,13 +6,13 @@
 - [Programming and execution models](src/04.Programming%20and%20execution%20models.md) 
 - [Memory organization in CUDA](src/05.GPU%20memory%20hierarchy.md)
 - Kernel level optimization
-- Task level parallelism: streams, events, dynamic parallelism
-- Tools: CUDA compiler, profiler and debugger
-- CUDA libraries
+- [Task level parallelism streams, events, dynamic parallelism](projects/polimi-notes/MSc(english)%20(WIP)/GPUs%20and%20Heterogeneous%20Systems%20(WIP)/Task%20level%20parallelism%20streams,%20events,%20dynamic%20parallelism.md)
+- [Tools CUDA compiler, profiler and debugger](projects/polimi-notes/MSc(english)%20(WIP)/GPUs%20and%20Heterogeneous%20Systems%20(WIP)/Tools%20CUDA%20compiler,%20profiler%20and%20debugger.md)
+- [CUDA libraries](src/CUDA%20libraries.md)
 
 Optimizing parallel patterns in CUDA
 
-- Convolution, stencil, histogram, reduction, prefix sum, merge
+- [Convolution, stencil, histogram, reduction, prefix sum, merge](projects/polimi-notes/MSc(english)%20(WIP)/GPUs%20and%20Heterogeneous%20Systems%20(WIP)/Convolution,%20stencil,%20histogram,%20reduction,%20prefix%20sum,%20merge.md)
 - Further case studies
 - Heterogeneous systems
 - Architectural aspects
