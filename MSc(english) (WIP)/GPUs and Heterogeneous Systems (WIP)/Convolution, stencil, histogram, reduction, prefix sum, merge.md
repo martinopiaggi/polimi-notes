@@ -831,7 +831,170 @@ Each iteration of the merge operation involves loading specific segments ("tiles
 In subsequent iterations, new segments of A and B are loaded into shared memory. It’s crucial to note that the entire shared memory may not always be filled if the segments from A and B do not align perfectly, potentially leading to inefficiencies and the introduction of bugs.
 
 
-#### circular buffering
+#### Circular buffering
 
 One proposed enhancement involves using a circular buffering method to optimize the utilization of shared memory across iterations. Instead of reloading data that has already been brought into shared memory, the algorithm can maintain a dynamic index that tracks where new data should be written and read within the shared memory. This approach reduces the redundancy of memory accesses and maximizes the use of already-loaded data.
 
+
+
+
+- If `A` and `B` are the input arrays, and `k` is the index in the merged array `C`:
+    - `co_rank(k, A, dim_A, B, dim_B)` finds the position in `A` such that the sum of elements from `A` and `B` up to this position is equal to `k`.
+
+Let's visualize the co-rank for `k = 2` in our example:
+
+- `A = [1, 3, 5, 7]`
+- `B = [2, 4, 6, 8]`
+
+We want to find how many elements from `A` and `B` make up the first 2 elements in `C`:
+
+- The co-rank splits the merged array such that the first `k` elements are from `A` and `B`.
+
+In this case:
+
+- `co_rank(2, A, 4, B, 4)` would find that:
+    - 1 element from `A` (1) and 1 element from `B` (2) make up the first 2 elements in `C`.
+
+
+
+After loading the data into the shared memory buffers, we need to update the starting index for the next iteration of the circular buffer:
+
+
+```cpp
+Copy code
+A_S_start = (A_S_start + A_S_consumed) % TILE_SIZE;
+B_S_start = (B_S_start + B_S_consumed) % TILE_SIZE;
+```
+
+- `A_S_start`: The starting index in the circular buffer A_s.
+- `A_S_consumed`: The number of elements consumed (loaded) in the current iteration for `A`.
+
+
+###  Sparse Matrix Formats
+
+Sparse matrix computation is crucial in scientific, engineering, and financial modeling problems, where the majority of matrix elements are zeros. Storing and processing these zeros wastes memory and bandwidth. To address this, various sparse matrix formats have been developed to compactly represent the non-zero elements, influencing GPU performance. 
+These formats include:
+- COO (Coordinate Format)
+- ELL (ELLpack Format)
+- CSR (Compressed Sparse Row).
+
+
+Sparse matrices often arise in applications like solving systems of equations, where each row represents one equation, and in modeling networks where the connections are sparse. 
+
+With this parameters:
+
+- **M**: Number of rows in the matrix
+- **N**: Number of columns in the matrix
+- **K**: Number of nonzero entries in the densest row
+	- **S**: Sparsity level `[0-1]`, `1` being fully-dense
+
+| Format                      | Storage Requirements |
+| --------------------------- | -------------------- |
+| Dense                       | $MN$                 |
+| Compressed Sparse Row (CSR) | $2MNS + M + 1$       |
+| ELL                         | $2MK$                |
+| Coordinate (COO)            | $3MNS$               |
+| Hybrid ELL / COO (HYB)      | $2MK << 3MNS$        |
+
+#### CSR
+
+The CSR format stores only the non-zero values and their corresponding column indexes, which impacts memory usage, data modification efficiency, and access patterns, affecting memory bandwidth peak performance and workload balance among threads.
+
+
+![](images/Pasted%20image%2020240518183331.png)
+
+
+Compressed Sparse Row (CSR) is space-efficient but less flexible. It stores each row as a sparse vector, requiring additional storage to locate the start of each row. The space requirements are defined as $2MNS + M + 1$, and CSR is space-saving if $S < \left(1 - \frac{1}{N}\right) / 2$. 
+
+Assigning a thread to each row for parallel SpMV (Sparse Matrix-Vector multiplication) ensures each thread handles a distinct output value, but consecutive threads accessing distant memory locations result in inefficient memory bandwidth utilization and potential control flow divergence.
+
+ELL format
+![](images/Pasted%20image%2020240518184106.png)
+
+originating from ELLPACK, relies on the maximum number of non-zero elements per row and **padding** elements. It's more flexible than CSR since non-zero elements can be added by replacing padding elements. ELL uses memory bandwidth efficiently due to coalesced memory access but can lead to load imbalance. The space requirements for ELL are $2MK$, and it saves space if $K < \frac{N}{2}$.
+
+### COO
+
+COO format stores both column and row indexes for every non-zero element, leading to higher space requirements but offering flexibility in adding non-zero elements. 
+
+
+Parallel SpMV in COO assigns each thread to compute a non-zero element, balancing the workload but requiring atomic operations for synchronization. The space requirements for COO are $3MNS$, and it saves space if $S < \frac{1}{3}$.
+
+```cpp
+struct SparseMatrixCOO {
+  int* row_indices;
+  int* column_indices;
+  float* values;
+  int num_elements;
+}
+```
+
+![](images/Pasted%20image%2020240518184710.png)
+
+
+```cpp
+void SpMV_COO(const SparseMatrixCOO* A, const float* x, float* y) {
+  for (int element = 0; element < A->num_elements; ++element) {
+    const int column = A->column_indices[element];
+    const int row    = A->row_indices[element];
+    y[row] += A->values[element] * x[column];
+  }
+}
+```
+
+And in GPU:
+
+```cpp
+__global__ void SpMV_COO_gpu(
+const int* __restrict__ row_indices,
+const int* __restrict__ column_indices,
+const float* __restrict__ values,
+const int num_elements,
+const float* x,
+float* y) {
+
+for (int element = threadIdx.x + blockIdx.x * blockDim.x; element < num_elements;element += blockDim.x * gridDim.x) {
+    const int column = column_indices[element];
+    const int row    = row_indices[element];
+    atomicAdd(&y[row], values[element] * x[column]);
+  }
+  
+}
+```
+
+
+### Hybrid ELL/COO
+
+![](images/Pasted%20image%2020240518185804.png)
+
+
+A hybrid ELL/COO format addresses ELL's inefficiency in handling rows with many non-zeros by placing these non-zeros in a COO format, leading to a more efficient ELL representation for the remaining elements. This approach enhances space efficiency and flexibility, making it beneficial for iterative solvers despite the overhead of using two different formats.
+The code is basically the same but just combines the two previous methods. 
+
+### Extra 
+
+Other formats include:
+
+- **Jagged Diagonal Storage (JDS):**
+  - Groups similarly dense rows into partitions.
+  - Represents partitions independently using either CSR or ELL.
+  - Sorts rows by density, avoiding padding and improving space efficiency.
+  - Allows coalesced memory access but lacks flexibility in adding new elements.
+- **Diagonal (DIA):**
+  - Stores only a sparse set of dense diagonal vectors.
+  - For each diagonal, the offset from the main diagonal is stored.
+- **Packet (PKT):**
+  - Reorders rows and columns to concentrate nonzeros into roughly diagonal submatrices.
+  - Improves cache performance as nearby rows access nearby x elements.
+- **Dictionary of Keys (DOK):**
+  - Stores the matrix as a map from (row, column) index pairs to values.
+  - Useful for building or querying a sparse matrix, but iteration is slow.
+- **Compressed Sparse Column (CSC):**
+  - Similar to CSR but stores a dense set of sparse column vectors.
+  - Useful when column sparsity is much more regular than row sparsity.
+- **Blocked CSR:**
+  - Divides the matrix into blocks stored using CSR with the indices of the upper left corner.
+  - Useful for block-sparse matrices.
+
+
+In general, the FLOPS ratings achieved by both CPUs and GPUs are much lower for sparse matrix computation than for dense matrix computation. In SpMV (Sparse Matrix-Vector multiplication) computation, there is no data reuse in the sparse matrix, which results in a low operational intensity. The operational intensity (OP/B) is essentially 0.25, significantly limiting the achievable FLOPS rate to a small fraction of the peak performance compared to dense matrix computations.
