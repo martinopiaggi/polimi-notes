@@ -144,3 +144,73 @@ while (err > tol && iter < iter_max) {
 - **Data transfer**:
   - `A`: Transferred to the device at the beginning and back to the host at the end. `copy(A[0:n][0:m])`
   - `Anew`: Used only on the device, so `create(Anew[0:n][0:m])` 
+
+
+## OpenCL 
+
+OpenCL acts as a runtime that enables the programming of diverse computing resources using a single language, addressing the challenge of managing multiple accelerators and programming languages.
+
+CUDA is designed by NVIDIA and it's tailored to specific accelerators, leading to the development of OpenCL as a comprehensive solution. 
+
+OpenCL has evolved to support different types of accelerators beyond just GPUs, including those found in desktops, HPC systems, service machines, mobile devices, and even FPGAs. The goal is to optimize performance while considering energy consumption, especially in mobile markets where efficiency and trade-offs between compute units like CPUs and GPUs are crucial.
+
+The development of OpenCL was spearheaded by Apple and is now managed by the Khronos Group, a consortium of hardware and software companies. 
+
+Supported Parallelism Models: 
+
+- **Single-Instruction-Multiple-Data (SIMD)**
+	- The kernel is composed of sequential instructions.
+	- The instruction stream is executed in lock-step on all involved processing elements.
+	- Generally used on GPU.
+- **Single-Program-Multiple-Data (SPMD)**
+	- The kernel contains loops and conditional instructions.
+	- Each processing element has its own program counter.
+	- Each instance of the kernel has a different execution flow.
+	- Generally used on CPU.
+- **Data-Parallel Programming Model**
+	- The same sequential instruction stream is executed in lock-step on different data.
+	- Generally used on GPU.
+- **Task-Parallel Programming Model**
+	- The program issues many kernels in an out-of-order fashion.
+
+
+The platform model involves multiple compute devices, each comprising compute units and processing elements for parallel processing. OpenCL's program structure mirrors CUDA, with host code written in C++ for sequential tasks and device code in OpenCL C for managing kernels and data parallel execution.
+
+![](images/Pasted%20image%2020240521213927.png)
+
+OpenCL's memory model is comparable to CUDA's, including private, local, global, and constant memory types.
+Different keywords, but same stuff of CUDA:
+
+- Define an N-dimensional integer index space (N=l ,2,3) called NDrange
+- Execute a kernel at each point in the integer index space
+
+![](images/Pasted%20image%2020240521214245.png)
+
+| OpenCL Term | Description                                                                      | CUDA Equivalent |
+| ----------- | -------------------------------------------------------------------------------- | --------------- |
+| Work-item   | Single execution of the kernel on a data instance (i.e., the basic unit of work) | CUDA thread     |
+| Work-group  | Group of contiguous work-items                                                   | CUDA block      |
+| NDrange     | N-dimensional grid with a local and global indexing, spanned by work-groups      | CUDA grid       |
+
+The program object encapsulates both source and compiled code, which is compiled at runtime based on the selected device, using just-in-time compilation. Memory objects like buffers and images are employed for data transmission.
+
+![](images/Pasted%20image%2020240521214629.png)
+
+The context object encapsulates various features like command queues, unlike CUDA, where much is managed by the runtime due to its focus on a single accelerator
+
+Just-in-time compilation in OpenCL provides flexibility across different devices, compiling device-side code at runtime using LLVM. 
+
+### Workflow of an OpenCL Application
+
+1. **Discovering the Platforms and Devices**
+	- Platforms correspond to vendor-specific libraries, with functions like `clGetPlatformID` and `clGetPlatformInfo` helping identify available platforms. These functions retrieve information about platforms, such as names, vendors, and profiles. Each platform can have multiple devices.
+	- Device IDs are selected for acceleration tasks using functions like `clGetDeviceID` and `clGetDeviceInfo`. 
+1. **Creating a Context**
+2. **Creating a Command Queue per Device**
+3. **Creating Memory Objects to Hold Data**
+4. **Copying the Input Data onto the Device**
+5. **Creating and Compiling a Program from the OpenCL C Source Code**
+6. **Generating a Kernel of the Program and Specifying Parameters**
+7. **Executing the Kernel**
+8. **Copying Output Data Back to the Host**
+9. **Releasing the OpenCL Resources**

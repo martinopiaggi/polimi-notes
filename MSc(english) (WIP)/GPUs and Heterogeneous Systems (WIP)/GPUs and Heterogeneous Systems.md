@@ -19,3 +19,4 @@ Optimizing parallel patterns in CUDA
 - Software aspects (programmability and runtime resource 
 management)
 -[Brief overview on OpenACC and OpenCL](src/Brief%20overview%20on%20OpenACC%20and%20OpenCL.md)
+
