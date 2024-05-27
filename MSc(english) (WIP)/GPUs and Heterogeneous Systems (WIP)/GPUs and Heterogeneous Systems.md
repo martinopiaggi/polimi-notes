@@ -20,3 +20,7 @@ Optimizing parallel patterns in CUDA
 management)
 -[Brief overview on OpenACC and OpenCL](src/Brief%20overview%20on%20OpenACC%20and%20OpenCL.md)
 
+
+
+
+[CSE 599I: Accelerated Computing - Programming GPUs (tschmidt23.github.io)](https://tschmidt23.github.io/cse599i/)

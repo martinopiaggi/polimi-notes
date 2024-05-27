@@ -996,5 +996,189 @@ Other formats include:
   - Divides the matrix into blocks stored using CSR with the indices of the upper left corner.
   - Useful for block-sparse matrices.
 
-
 In general, the FLOPS ratings achieved by both CPUs and GPUs are much lower for sparse matrix computation than for dense matrix computation. In SpMV (Sparse Matrix-Vector multiplication) computation, there is no data reuse in the sparse matrix, which results in a low operational intensity. The operational intensity (OP/B) is essentially 0.25, significantly limiting the achievable FLOPS rate to a small fraction of the peak performance compared to dense matrix computations.
+
+### Graph traversal 
+
+Graphs are intrinsically related to sparse matrices, with an intuitive representation being an adjacency matrix. Consequently, graph computation can be formulated in terms of sparse matrix operations: 
+GPU Solutions for graph Traversal are: 
+
+- **Iterative Vertex Assignment**
+	- Method: Iterate or assign each thread to a vertex.
+	  - For each iteration, check all incoming edges to see if the source vertex was visited in the last iteration.
+	  - If visited, mark the vertex as visited in the current iteration.
+	- Efficiency: Not very work efficient.
+	  - Complexity: \(O(VL)\), where \(V\) is the number of vertices and \(L\) is the length of the longest path.
+	- Challenge: Difficult to detect a stopping criterion.
+- **Frontier-Based Thread Assignment**
+	- Method: Assign threads to frontier vertices from the previous iteration.
+	  - Add all non-visited neighbors to the next frontier.
+	  - The source will be the first element in the frontier.
+	- Parallel Execution: Threads execute in parallel.
+		  - Issue: A variable number of unnecessary threads are launched.
+		  - Explanation: This happens because the frontier size can vary greatly between iterations, leading to imbalanced workloads among threads. Efficient load balancing in such dynamic scenarios is challenging, resulting in the launch of more threads than necessary to ensure all possible work is covered.
+
+Regarding frontier output interface: 
+
+![](images/Pasted%20image%2020240527183133.png)
+
+
+- **Without Synchronization**:
+    
+    - Both threads may attempt to visit the same vertex (C), leading to redundancy.
+    - This results in two entries for vertex C in the current queue.
+- **With `atomicExch`**:
+    
+    - The `atomicExch` ensures that only one thread successfully marks vertex C as visited.
+    - This prevents redundant entries, leading to a single entry for vertex C in the current queue.
+
+
+
+- **Visitation Check**: The `atomicExch` operation checks if a vertex has been visited and marks it as visited atomically. This prevents multiple threads from visiting the same vertex simultaneously.
+- **Queue Indexing**: The `atomicAdd` operation ensures that each thread gets a unique index in the `currentFrontier` array, allowing for correct placement of newly discovered vertices.
+
+```cpp
+if (t < *previousFrontierSize) {
+    const int vertex = previousFrontier[t];
+    for (int i = rowPointers[vertex]; i < rowPointers[vertex + 1]; ++i) {
+        // Check visitation atomically, avoiding redundant expansion
+        const int alreadyVisited = atomicExch(&visited[i], 1);
+        if (!alreadyVisited) {
+            // We're visiting a new vertex: get a spot in line atomically
+            const int queueIndex = atomicAdd(&currentFrontierSize, 1);
+            distances[destinations[i]] = distances[vertex] + 1;
+            // Place the vertex in line
+            currentFrontier[queueIndex] = destinations[i];
+        }
+    }
+}
+```
+
+Optimizations 1 is privatization
+
+Privatization is a technique to reduce contention in atomic operations by performing partial updates in private copies of data, then updating the public copy when done. This approach limits contention to threads within the same block, allowing for lower-latency atomic operations.
+Without privatization, all threads would contend for a single global frontier, leading to high contention and potential bottlenecks. With privatization, each block maintains its local queue, reducing the contention significantly and allowing more efficient use of atomic operations.
+
+![](images/Pasted%20image%2020240527184742.png)
+
+
+```cpp
+if (t < *previousFrontierSize) {
+    const int vertex = previousFrontier[t];
+    for (int i = rowPointers[vertex]; i < rowPointers[vertex + 1]; ++i) {
+        const int alreadyVisited = atomicExch(&(visited[destinations[i]]), 1);
+        if (!alreadyVisited) {
+            distances[destinations[i]] = distances[vertex] + 1;
+            const int sharedQueueIndex = atomicAdd(&sharedCurrentFrontierSize, 1);
+            if (sharedQueueIndex < BLOCK_QUEUE_SIZE) { // there is space in the local queue
+                sharedCurrentFrontier[sharedQueueIndex] = destinations[i];
+            } else { // go directly to the global queue
+                sharedCurrentFrontierSize = BLOCK_QUEUE_SIZE;
+                const int globalQueueIndex = atomicAdd(&currentFrontierSize, 1);
+                currentFrontier[globalQueueIndex] = destinations[i];
+            }
+        }
+    }
+}
+```
+
+
+
+**Understanding Texture Memory in CUDA**
+
+The memory access pattern in this scenario is irregular
+
+![](images/Pasted%20image%2020240527184905.png)
+
+Texture memory, which is useful for real-time texture interpolation in graphical applications is also a good fit for this use case because it allows for **efficient unpredictable access** to the graph data. Texture memory is designed for graphical data access, making it a suitable choice. 
+
+![](images/Pasted%20image%2020240527184827.png)
+
+
+```cpp
+if (t < *previousFrontierSize) {
+    const int vertex = previousFrontier[t];
+    for (int i = tex1D<int>(rowPointersTexture, vertex); i < tex1D<int>(rowPointersTexture, vertex + 1); ++i) {
+        // Check visitation atomically, avoiding redundant expansion
+        const int alreadyVisited = atomicExch(&(visited[destinations[i]]), 1);
+        if (!alreadyVisited) {
+            // We're visiting a new vertex: get a spot in line atomically
+            const int queueIndex = atomicAdd(&currentFrontierSize, 1);
+            distances[destinations[i]] = distances[vertex] + 1;
+            // Place the vertex in line
+            currentFrontier[queueIndex] = destinations[i];
+        }
+    }
+}
+```
+
+
+   - `tex1D<int>(rowPointersTexture, vertex)`: Accesses the row pointer for the given vertex using texture memory. This allows efficient, unpredictable access to the graph data stored in `rowPointersTexture`.
+   - `tex1D<int>(rowPointersTexture, vertex + 1)`: Accesses the next row pointer to determine the range of outgoing edges for the vertex.
+
+
+### Hybrid GPU-CPU Computation and Memory Management
+
+At the beginning of BFS, the frontier (set of vertices to be explored) is often quite small. The **overhead of launching GPU kernels** can outweigh the benefits of parallel computation in such cases.
+
+As the frontier grows, the parallelism offered by the GPU becomes more advantageous. Therefore, switching between CPU and GPU based on frontier size can optimize performance.
+
+
+   - The process involves transferring data between the host (CPU) and the device (GPU). This "ping-pong" effect requires careful management to minimize overhead.
+
+
+Start on CPU -> at a certain point, when the frontier size starts to grow and remains stable (variance on the size must not cause ping-pong) computation and data is transfered on GPU -> at the end when the frontier starts to shrink return to CPU. 
+
+### Electrostatic Potential Map and GPU Computation
+
+We are diving into a practical example of computing electrostatic potential maps, which is crucial in molecular dynamics simulations. The goal is to calculate the electric field potential map and the displacement of ions within a molecular system: we'll use direct Coulomb summation.
+
+1. **Parallelizing among atoms**: Each thread computes the contribution of a single atom to the grid points.
+2. **Parallelizing for each grid point**: Each thread computes the contribution of all atoms to a single grid point.
+
+Using constant memory without shared memory for the atoms' data allows for fast access and reduced memory consumption (since we don't need to write on it). By chunking the atoms' data into smaller chunks fitting into constant memory, multiple kernels can compute the contributions of each chunk faster.
+
+So recapping, optimizing a GPU kernel for energy grid computation involves:
+
+- Pre-allocating memory and copying atom data to constant memory.
+- Launching the kernel to compute energies for each atom.
+- Synchronizing (atomic ops) threads to avoid conflicts when updating grid points.
+
+Two approaches to parallelization:
+
+- **Scatter approach**: Each thread computes the contribution from a single atom.
+- **Gather approach**: Each thread computes the contribution for each specific grid point, allowing for spawning more threads and improving load balancing and efficiency. This involves computing contributions on a plane with fixed X and Y coordinates, iterating over the Z coordinates.
+
+Optimizing energy computation involves:
+
+- Using a local register to store `energy` values during computation, writing back to the `energygrid` point at the loop's end to avoid inefficient global memory storage.
+- Using a 3D grid where each thread is responsible for one point, with limitations due to the total number of threads that can be spawned.
+- Improving arithmetic intensity through thread coarsening, where a single thread computes energy values for multiple nearby points, increasing computation intensity and reducing memory accesses.
+
+### Modifying the Kernel for Coarsened Factor
+
+When processing elements in parallel, the kernel needs to account for the coarsened factor. Adjust the grid of threads, considering the coarsened factor when defining the x-dimension of the grid. The i-index needs adjustment, and each thread index shifts by the coarsened factor.
+
+`emp-corasening.cu`
+
+### Coalesced memory access
+
+Ensuring coalesced memory access by changing how indexes are computed so that consecutive threads access nearby memory locations.
+
+```cpp
+//todo
+```
+
+These offsets ensure that the threads within the same block write to adjacent memory locations.
+
+### Approximate Solutions: Cutoff Binning
+
+Cutoff binning significantly reduces computational requirements, especially in large-scale computations. It involves dividing the computation into smaller tiles and only considering atoms within a certain radius. 
+
+![](images/Pasted%20image%2020240527222125.png)
+
+Each grid point needs accurate contributions from nearby atoms, as distant atoms have minimal impact.
+
+![](images/Pasted%20image%2020240527222022.png)
+
+Binning may result in different numbers of atoms per bin, requiring all bins to be the same size and aligned for memory coalescing. Maintaining an overflow list ensures that if a bin exceeds capacity, the atom is added to the overflow list. The host executes a sequential cutoff algorithm on the overflow list to complete missing contributions.
