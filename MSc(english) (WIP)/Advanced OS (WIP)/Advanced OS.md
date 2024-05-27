@@ -9,5 +9,5 @@
 - [Virtualization](src/06.Virtualization.md)
 - [IO](src/04.IO.md)
 - [Booting](src/08.Booting.md)
-- [C++](src/07.C++.md)
+- [C++](src/07.Cpp.md)
 
