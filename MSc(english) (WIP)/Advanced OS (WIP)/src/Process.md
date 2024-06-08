@@ -2,19 +2,13 @@
 
 First, let's clarify some definitions:
 
-- "**Task**" refers to a single unit of computation and is often used interchangeably with "thread" in Linux.
-- A **program** is a set of computer instructions stored and not currently being executed. A **process** is an instance of a program that is currently being executed and has its own isolated memory address space. It has a unique program counter called `PID`, two stacks (one in user mode and one in kernel mode), a set of processor registers, and an optional address space.
-- A **process** is an instance of a program that is currently being executed. It has its own isolated memory address space, a unique program counter called `PID`, two stacks (one in user mode and one in kernel mode), a set of processor registers, and an optional address space.
-- An **application** is a user-oriented concept of a program, often referring to programs with a graphical user interface (GUI).
-- A **thread** is the smallest schedulable unit of execution which can be **contained in a process**.
-	- Threads have a unique PID and PPID (parent's PID)
-	- Each thread in a process has its own stack for independent execution, while they share the process's global memory.
-	- Variables that are part of the parent process's memory (e.g., global or static variables and heap-allocated data) are inherently shared among all threads of that process.
-	- Local variables (on the stack) of a thread are private to that thread and not directly accessible to other threads.
-	- Threads can be synchronized, access global memory areas, and variables of other threads.
-	- Threads have a private address space, and communication between threads requires inter-process communication (IPC) facilitated by the operating system.
-	- Threads are executed sequentially on the CPU, but hardware parallelism can be an exception.
-
+- A **program** is a set of computer instructions stored and not currently being executed. 
+- A **process** is an instance of a program that is currently being executed and has its own isolated memory address space.
+- **Task** refers to a single unit of computation and is often used interchangeably with "thread"/process in Linux. A task is made of:
+	- unique program counter called `PID`
+	- two stacks (one in user mode and one in kernel mode)
+	- a set of processor registers
+	- if kernel, an optional address space
 
 A **Task Control Block (TCB)**, also referred to as a **Process Control Block (PCB)** is the generic term used in os theory to refer to the data structure that stores all the information about a process. A TCB typically contains the following information:
 
@@ -71,12 +65,3 @@ Linux treats all threads as standard processes. Each thread has a unique `task_s
 
 - Start, stop, and query the status of services.
 - Manage system resources and services effectively.
-
-### Task scheduling
-
-The scheduler is responsible for determining the order in which tasks are executed ("task" can have different meanings and can be used interchangeably with "thread" in these notes).
-A simplified view of task states is:
-
-![](images/7d57cb3b57b34b223ff05125e8185379.png)
-
-Actually the reality in Linux is much more complex and there are a lot of possible things that can happen to the process like errors, special states etc. 
