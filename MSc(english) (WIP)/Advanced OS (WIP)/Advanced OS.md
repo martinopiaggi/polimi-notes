@@ -1,7 +1,7 @@
 # Advanced OS 
 
 - [OS goals and definitions](src/00.OS%20goals%20and%20definitions.md)
-- [Process](src/Process.md) 
+- [Process](src/01.Process.md) 
 	- [Concurrency](src/01.Concurrency.md)
 	- [Scheduling](src/02.Scheduling.md)
 	- [Multi-processing and Inter-Process Communication](src/03.Multi-processing%20and%20Inter-Process%20Communication.md)
