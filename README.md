@@ -26,7 +26,7 @@ These notes were created during periods of desperate studying, utilizing both pr
 
 * [Advanced Algorithms and Parallel Programming](MSc(english)%20(WIP)/Advanced%20Algorithms%20and%20Parallel%20Programming/Advanced%20Algorithms%20and%20Parallel%20Programming.md) 
 * [Advanced Computer Architectures](MSc(english)%20(WIP)/Advanced%20Computer%20Architectures/Advanced%20Computer%20Architectures.md)
-* [Advanced OS (WIP)](MSc(english)%20(WIP)/Advanced%20OS%20(WIP)/Advanced%20OS.md)
+* [Advanced OS (WIP)](MSc(english)%20(WIP)/Advanced%20OS/Advanced%20OS.md)
 * [Artificial Neural Networks and Deep Learning (WIP)](MSc(english)%20(WIP)/Artificial%20Neural%20Networks%20and%20Deep%20Learning%20(WIP)/Artificial%20Neural%20Networks%20and%20Deep%20Learning.md)
 * [Complex systems and networks](MSc(english)%20(WIP)/Complex%20systems%20and%20networks/Complex%20systems%20and%20networks.md)
 * [Computer Graphics](MSc(english)%20(WIP)/Computer%20Graphics(WIP)/Computer%20Graphics.md)
