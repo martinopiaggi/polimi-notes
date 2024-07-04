@@ -4,7 +4,7 @@
 - [GPU architecture](src/02.GPU%20architecture.md) 
 - [CUDA](src/03.CUDA.md) 
 - [Programming and execution models](src/04.Programming%20and%20execution%20models.md) 
-- [Memory organization in CUDA](src/05.GPU%20memory%20hierarchy.md)
+- [Memory organization in CUDA](src/05.CUDA%20memory%20model.md)
 - Kernel level optimization
 - [06.Task level parallelism streams, events, dynamic parallelism](src/06.Task%20level%20parallelism%20streams,%20events,%20dynamic%20parallelism.md)
 - [07.Tools CUDA compiler, profiler and debugger](src/07.Tools%20CUDA%20compiler,%20profiler%20and%20debugger.md)
