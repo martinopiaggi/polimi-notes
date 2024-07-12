@@ -8,10 +8,11 @@
 - [Task level parallelism streams, events, dynamic parallelism](src/06.Task%20level%20parallelism%20streams,%20events,%20dynamic%20parallelism.md)
 - [Tools CUDA compiler, profiler and debugger](src/07.Tools%20CUDA%20compiler,%20profiler%20and%20debugger.md)
 
-[Optimizing parallel patterns](src/08.%20Kernel%20optimizations.md) in CUDA with some case studies:
+[Optimizing parallel patterns](src/08.%20CUDA%20Kernel%20optimizations.md) in CUDA with some case studies:
 
+- [Histogram](src/Histogram.md)
 - [Convolution](src/09.Convolution.md)
-- [Scan](src/11.Scan.md)
+- [Reduction and Scan](src/11.Reduction%20and%20scan.md)
 - [Stencil](src/12.Stencil.md)
 - [Merge](src/11.Merge.md)
 - [Graph Traversal](src/13.Graph%20Traversal.md)
@@ -27,3 +28,5 @@ management)
 
 
 [CSE 599I: Accelerated Computing - Programming GPUs (tschmidt23.github.io)](https://tschmidt23.github.io/cse599i/)
+
+[(276) Heterogenous Parallel Programming - CUDA Programming - YouTube](https://www.youtube.com/playlist?list=PLzn6LN6WhlN06hIOA_ge6SrgdeSiuf9Tb)
