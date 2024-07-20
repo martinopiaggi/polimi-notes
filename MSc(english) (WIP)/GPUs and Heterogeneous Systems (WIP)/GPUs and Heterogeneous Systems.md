@@ -16,17 +16,10 @@
 - [Stencil](src/12.Stencil.md)
 - [Merge](src/11.Merge.md)
 - [Graph Traversal](src/13.Graph%20Traversal.md)
-- Extra: [Electrostatic Potential Map and GPU Computation](src/14.Electrostatic%20Potential%20Map%20and%20GPU%20Computation.md)
+- [Electrostatic Potential Map and GPU Computation](src/14.Electrostatic%20Potential%20Map%20and%20GPU%20Computation.md)
 
-Heterogeneous systems
-
-- Architectural aspects
-- Software aspects (programmability and runtime resource 
-management)
-
-[Brief overview on OpenACC and OpenCL](src/15.Brief%20overview%20on%20OpenACC%20and%20OpenCL.md)
-
+[Brief over view on OpenACC and OpenCL](src/15.Brief%20overview%20on%20OpenACC%20and%20OpenCL.md)
+[HSA foundations](src/HSA%20foundations.md)
 
 [CSE 599I: Accelerated Computing - Programming GPUs (tschmidt23.github.io)](https://tschmidt23.github.io/cse599i/)
-
 [(276) Heterogenous Parallel Programming - CUDA Programming - YouTube](https://www.youtube.com/playlist?list=PLzn6LN6WhlN06hIOA_ge6SrgdeSiuf9Tb)
