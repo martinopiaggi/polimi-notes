@@ -18,7 +18,7 @@
 - [Graph Traversal](src/13.Graph%20Traversal.md)
 
 [Brief over view on OpenACC and OpenCL](src/14.Brief%20overview%20on%20OpenACC%20and%20OpenCL.md)
-[15.HSA foundations](src/15.HSA%20foundations.md)
+[HSA foundations](src/15.HSA%20foundations.md)
 
 [CSE 599I: Accelerated Computing - Programming GPUs (tschmidt23.github.io)](https://tschmidt23.github.io/cse599i/)
 [(276) Heterogenous Parallel Programming - CUDA Programming - YouTube](https://www.youtube.com/playlist?list=PLzn6LN6WhlN06hIOA_ge6SrgdeSiuf9Tb)
