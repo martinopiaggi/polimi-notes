@@ -1,8 +1,7 @@
 # Polimi Notes
 
 CS & Engineering course notes from Politecnico di Milano. Mix of desperate studying, prof materials, and LLM-assisted synthesis. Not perfect, may have errors.
-
-## Features
+Features: 
 
 - Markdown + PDF for each course in this repo 
 - Interconnected topics via markdown links
