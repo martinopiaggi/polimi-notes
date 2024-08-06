@@ -21,7 +21,7 @@ Features:
 * [Computer Security](MSc(english)%20(WIP)/Computer%20Security/Computer%20Security.md)
 * [Computing Infrastructures](MSc(english)%20(WIP)/Computing%20Infrastructures/Computing%20Infrastructures.md) 
 * [Databases 2](MSc(english)%20(WIP)/Databases%202/Databases%202.md) 
-* [Distributed Systems (WIP)](MSc(english)%20(WIP)/Distributed%20Systems%20(WIP)/Distributed%20Systems.md)
+* [Distributed Systems (WIP)](MSc(english)%20(WIP)/Distributed%20Systems/Distributed%20Systems.md)
 * [Formal Languages and Compilers (WIP)](MSc(english)%20(WIP)/Formal%20Languages%20and%20Compilers%20(WIP)/Formal%20Languages%20and%20Compilers.md)
 * [Foundations of Operation Research (WIP)](MSc(english)%20(WIP)/Foundations%20of%20Operation%20Research%20(WIP)/Foundations%20of%20Operation%20Research.md) 
 * [GPUs and Heterogeneous Systems](MSc(english)%20(WIP)/GPUs%20and%20Heterogeneous%20Systems/GPUs%20and%20Heterogeneous%20Systems.md) 
