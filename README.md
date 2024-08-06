@@ -15,7 +15,7 @@ Features:
 * [Advanced Algorithms and Parallel Programming](MSc(english)%20(WIP)/Advanced%20Algorithms%20and%20Parallel%20Programming/Advanced%20Algorithms%20and%20Parallel%20Programming.md) 
 * [Advanced Computer Architectures](MSc(english)%20(WIP)/Advanced%20Computer%20Architectures/Advanced%20Computer%20Architectures.md)
 * [Advanced OS](MSc(english)%20(WIP)/Advanced%20OS/Advanced%20OS.md)
-* [Artificial Neural Networks and Deep Learning (WIP)](MSc(english)%20(WIP)/Artificial%20Neural%20Networks%20and%20Deep%20Learning%20(WIP)/Artificial%20Neural%20Networks%20and%20Deep%20Learning.md)
+* [Artificial Neural Networks and Deep Learning (WIP)](MSc(english)%20(WIP)/Artificial%20Neural%20Networks%20and%20Deep%20Learning/Artificial%20Neural%20Networks%20and%20Deep%20Learning.md)
 * [Complex systems and networks](MSc(english)%20(WIP)/Complex%20systems%20and%20networks/Complex%20systems%20and%20networks.md)
 * [Computer Graphics](MSc(english)%20(WIP)/Computer%20Graphics(WIP)/Computer%20Graphics.md)
 * [Computer Security](MSc(english)%20(WIP)/Computer%20Security/Computer%20Security.md)
@@ -32,7 +32,6 @@ Features:
 * [Philosophical Issues of Computer Science (WIP)](MSc(english)%20(WIP)/Philosophical%20Issues%20of%20Computer%20Science%20(WIP)/Philosophical%20Issues%20of%20Computer%20Science.md)
 * [Principles of Programming Languages](MSc(english)%20(WIP)/Principles%20of%20Programming%20Languages/Principles%20of%20Programming%20Languages.md)
 * [Software Engineering 2](MSc(english)%20(WIP)/Software%20Engineering%202/Software%20Engineering%202.md)
-* [Videogame Design and Programming (WIP)](Videogame%20Design%20and%20Programming)
 
 ### BSc (Italian)
 
