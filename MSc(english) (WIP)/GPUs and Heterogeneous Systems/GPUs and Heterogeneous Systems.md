@@ -12,9 +12,9 @@
 
 - [Histogram](src/08.Histogram.md)
 - [Convolution](src/09.Convolution.md)
-- [Reduction and Scan](src/11.Reduction%20and%20scan.md)
-- [Stencil](src/12.Stencil.md)
-- [Merge](src/11.Merge.md)
+- [Reduction and Scan](src/10.Reduction%20and%20scan.md)
+- [Stencil](src/11.Stencil.md)
+- [Merge](src/12.Merge.md)
 - [Graph Traversal](src/13.Graph%20Traversal.md)
 
 [Brief over view on OpenACC and OpenCL](src/14.Brief%20overview%20on%20OpenACC%20and%20OpenCL.md)
