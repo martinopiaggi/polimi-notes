@@ -1,14 +1,19 @@
 # Polimi Notes
 
-CS & Engineering course notes from Politecnico di Milano. Mix of desperate studying, prof materials, and LLM-assisted synthesis. Not perfect, may have errors.
-Features: 
+CS & Engineering course notes from Politecnico di Milano. 
+Mix of caffeine-fueled cramming, prof slides, and AI-assisted synthesis.
+Not perfect, may have errors.
 
-- Markdown + PDF for each course in this repo 
-- Interconnected topics via markdown links
-- WIP tags for incomplete notes
-- Cool graph visualization if opened with Obsidian.md
+Get 'em:
+
+- [Browse online](https://martino.im/polimi-notes/University+notes) for easy navigation
+- `git clone` the repo, use any markdown editor
+- [Obsidian](https://obsidian.md/) or similar for graph porn (interconnected topics via markdown links)
+- In each course folder I generated a PDF from the notes  
 
 ## Courses
+
+*WIP tags for incomplete notes*
 
 ### MSc (English) (WIP)
 
