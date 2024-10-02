@@ -17,4 +17,4 @@
 
 [Recurrent Neural Networks](src/08.Recurrent%20Neural%20Networks.md)
 
-[Word Embedding](src/09.seq2seq.md)
+[Seq2seq](src/09.seq2seq.md)
