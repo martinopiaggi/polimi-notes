@@ -7,9 +7,9 @@ Not perfect, may have errors.
 Get 'em:
 
 - [Browse online](https://notes.martino.im) for easy navigation
-- `git clone` the repo, use any markdown editor
+- `git clone` the [git repository](https://github.com/martinopiaggi/polimi-notes) and use any markdown editor
 - [Obsidian](https://obsidian.md/) or similar for graph porn (interconnected topics via markdown links)
-- In each course folder I generated a PDF from the notes  
+- In each course folder I generated a **PDF** from the notes  
 
 ## Courses
 
