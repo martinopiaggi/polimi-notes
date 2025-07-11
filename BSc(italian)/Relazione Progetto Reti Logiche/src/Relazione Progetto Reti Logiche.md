@@ -1,23 +1,3 @@
----
-title: Progetto di Reti Logiche
-author: "Martino Piaggi"
-date: "2021-2022"
-numbersections: true
-geometry: 
-- top=30mm
-- left=23mm
-- right=23mm
-- bottom=30mm
----
-
-\maketitle
-\newpage
-\tableofcontents
-\newpage
-
-
-[Reti Logiche](../../projects/polimi-notes/BSc([/Reti%20Logiche/Reti%20Logiche.md) 
-
 
 # Introduzione
 
